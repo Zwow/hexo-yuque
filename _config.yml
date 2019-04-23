@@ -4,11 +4,11 @@
 
 # Site
 title: Hexo
-subtitle:
-description:
-keywords:
-author: John Doe
-language:
+subtitle: 个人学习博客
+description: 记录日常工作遇到的问题，学习的过程
+keywords: javascript vue
+author: Zwow
+language: zh-Hans
 timezone:
 
 # URL
@@ -73,9 +73,10 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:Zwow/Zwow.github.io.git

@@ -1,0 +1,29 @@
+env:
+  global:
+    GH_REF: github.com/yourname/yourname.github.io.git
+    secure: KbM5EErdgc7kRJSxueIYyjEQ1xO+L3xElOje43gAX3V0UvgNBo15u087C0tEE3YnLn8+9XrQXtynbGbzJRqAHt6WDpwwha72gzm8qFDDMjBTPEy9HGUQRiXhNHAR+mZY0uaSlzMx2YhF4HQAOEMEARsISP5Z627mLrlFrTGVSp7fJE/QZWSLUvmKm/W1TQJwd9XoEmC5H+R299gHpI6zeIz79IYdwUJnhcc/RxDPOXHX13HsIF9RfPgD3gon9eB+O5maU3cS24vfQz6hOs8R1PVxXHMRnKj7ORI+WyFrcdoJEPZ0FSNI9Gk7zcW7AvJ6Z6AdYdcPxqHrcQNoE5HsgUEAnmp38dRdKgrmrTov5g0hcZwkQyMEiqnuEgJxfF0uSEXtjolrZa56Ahs643PMmA0GdIx/2GOduAJ07fJNgMbdsxUG0YsnI+r3KuEWrgau+6Svo3VZGK1vXRou1Ptmm0WEDV06bG+uG/y0y4TLL70y9qrLZUKJm0mwoKx6eg0/o198XjIsgVSg1l44fhCQpjeaaNgDhjxT8jQph7P5JOd+K34gRydQmkZ0S3kh4VxvuKtBtYQabyFylS/HYLmQg5hR37VsSSmbKQWRYqJrsUQ7bk1LxuBVJYWJ7U0W+IzSsd4yP49Ag66jsfj9gJM6neVw1cRK7O9S5PI1NEnOWK8=
+
+language: node_js
+
+node_js:
+  '8'
+
+branches:
+  only:
+    master
+
+before_install:
+  export TZ='Asia/Shanghai'
+  npm install -g hexo
+  npm install -g hexo-cli
+
+before_script:
+  git config --global user.name "${NAME}"
+  git config --global user.email "${EMAIL}"
+  sed -i'' "s~git@github.com:Zwow/Zwow.github.io.git~https://${GH_TOKEN}:x-oauth-basic@github.com/Zwow/Zwow.github.io.git~"  _config.yml
+
+install:
+- npm install
+
+script:
+- npm run deploy
